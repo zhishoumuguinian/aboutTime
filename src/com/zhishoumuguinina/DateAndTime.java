@@ -1,5 +1,6 @@
 package com.zhishoumuguinina;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -22,9 +23,19 @@ public class DateAndTime {
          * simpleDateFormat创建一个格式化模板
          * java.text.simpleDateFormat
          */
-        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd a HH:mm:ss");
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        format()按照模板格式化日期
         var sfDate= sf.format(date);
         System.out.println("格式化之后的日期:" + sfDate);
+//        parse()将字符串解析为日期
+        Date pdate = null;
+        try {
+            pdate = sf.parse("2016-11-12 19:30:20");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(sf.format(pdate));
+
 
     }
 
